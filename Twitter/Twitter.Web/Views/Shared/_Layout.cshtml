@@ -1,0 +1,70 @@
+﻿@using Microsoft.AspNet.Identity
+@using Twitter.Data
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Twitter</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/Kendo/jquery.min.js"></script>
+    <script src="~/Scripts/Kendo/kendo.all.min.js"></script>
+    <script src="~/Scripts/Kendo/kendo.aspnetmvc.min.js"></script>
+
+    <link href="~/Content/Kendo/kendo.black.min.css" rel="stylesheet" />
+    <link href="~/Content/Kendo/kendo.common.core.min.css" rel="stylesheet" />
+    <link href="~/Content/Kendo/kendo.common.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Twitter", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        var username = User.Identity.GetUserName();
+
+                        <li>
+                            @Html.ActionLink("PublicProfile", "PublicProfile", "Users", new { username = @username }, new { })
+                        </li>
+                        <li>
+                            @Html.ActionLink("Notifications", "MyNotifications", "Notifications", new { username = @username }, new { })
+                            <li><span class="btn-danger btn">@ViewBag.Notifications</span></li>
+                        </li>
+
+                        if (User.IsInRole("Administrator"))
+                        {
+                            <li>
+                                @Html.ActionLink("Administration", "AdminIndex", "Admin/AdminHome", new { username = @username }, new { })
+                            </li>
+                        }
+                    }
+                </ul>
+                @Html.Partial("_SearchUserPartial")
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @Html.Partial("_Notifications")
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Twitter</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

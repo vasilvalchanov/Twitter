@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Twitter.Web.Models.ViewModels.SimpleUserViewModel>
+
+
+@if (Model.Any())
+{
+    
+        foreach (var user in @Model)
+        {
+        <h2><li> @Html.ActionLink(user.Username, "PublicProfile", "Users", new { username = user.Username }, new { @class ="" })</li></h2>
+        }
+    
+}
+else
+{
+    <div class="well">
+        <div class="row">
+            <div class="col-md-10">
+                <h3>No Results!</h3>
+            </div>
+        </div>
+    </div>
+}
+

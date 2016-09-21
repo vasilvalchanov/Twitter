@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Twitter.Web.Models.ViewModels.TweetViewModel>
+
+
+@if (Request.IsAuthenticated)
+{
+    @Html.Partial("_CreateTweetPartial")
+}
+
+<div class="row">
+    @if (!Model.Any())
+    {
+        <h2>No Tweets</h2>
+    }
+    else
+    {
+        <div class="col-md-12">
+            <p>
+                @Html.DisplayFor(tweets => tweets)
+            </p>
+        </div>
+    }
+
+</div>
+
+@section scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+}

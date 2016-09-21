@@ -1,0 +1,29 @@
+﻿@model Twitter.Web.Models.ViewModels.UserViewModel
+
+
+
+
+<div class="col-md-12">
+    <div>
+        @Html.Partial("_UserProfilePartial")
+
+    </div>
+    <hr>
+    <div class="well">
+        <span style="margin: 20px">@Html.ActionLink("My Tweets", "MyTweets", "Tweets", new { username = @Model.Username }, new { @class = "btn btn-primary btn-lg" })</span>
+        <span style="margin: 20px">@Html.ActionLink("Favorite Tweets", "ShowFavorites", "Tweets", new { username = @Model.Username }, new { @class = "btn btn-primary btn-lg" })</span>
+        <span id="followers-@Model.Username" style="margin: 20px">
+            @Ajax.ActionLink("Followers", "ShowFollowers", "Users", new { username = @Model.Username }, new AjaxOptions() { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "buttons-" + @Model.Username }, new { @class = "btn btn-primary btn-lg" })
+        </span>
+        <span class="followingUsers-@Model.Username" style="margin: 20px">
+            @Ajax.ActionLink("Following Users", "ShowFollowingUsers", "Users", new { username = @Model.Username }, new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = "buttons-" + @Model.Username }, new { @class = "btn btn-primary btn-lg" })
+        </span>
+        <span>@Html.ActionLink("Follow Me", "FollowMe", "Users", new { username = @Model.Username }, new { @class = "btn btn-danger btn-lg" })</span>
+
+        <div id="buttons-@Model.Username">
+        </div>
+    </div>
+    @Html.Partial("_CreateTweetPartial")
+
+
+</div>

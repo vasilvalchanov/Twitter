@@ -1,0 +1,23 @@
+﻿@model IEnumerable<String>
+
+<div>
+
+    @if (Model.Any())
+    {
+        <br>
+        @: <strong>Following Users:</strong>
+        <ul>
+            @foreach (var user in @Model)
+            {
+                <li>
+                    @Html.ActionLink(user, "PublicProfile", "Users", new { username = user }, new { })
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <br>
+        @:<strong>No Following Users</strong>
+    }
+</div>

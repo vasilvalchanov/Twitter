@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Twitter.Web.Models.ViewModels.NotificationViewModel>
+
+
+<h2>MyNotifications</h2>
+
+<div>
+
+    <hr/>
+    @Html.DisplayFor(x => x)
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/ajax")
+}
+

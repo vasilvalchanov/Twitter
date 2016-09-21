@@ -1,0 +1,8 @@
+﻿@model Twitter.Web.Models.ViewModels.TweetViewModel
+<div>
+    Tweet #@Model.Id will be deleted!
+    <div>
+        @Html.ActionLink("Delete", "Delete", "Tweets", new { id = @Model.Id }, new { @class = "btn btn-danger" })
+        @Html.ActionLink("Cancel", "MyTweets", "Tweets", new {username = @Model.Author.Username}, new { @class = "btn btn-primary" })
+    </div>
+</div>

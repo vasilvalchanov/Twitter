@@ -1,0 +1,43 @@
+﻿@model Twitter.Web.Models.ViewModels.NotificationViewModel
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsRead)
+        </dt>
+
+        <dd >
+
+            @if (Model.IsRead == true)
+            {
+                <span id="notif-@Model.Id">Yes</span>
+                @Ajax.ActionLink("Mark as unread", "ChangeNotificationStatus", "Notifications", new { id = Model.Id }, new AjaxOptions() { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "notif-" + @Model.Id }, new { @class = "btn btn-primary" })
+            }
+            else
+            {
+                <span id="notif-@Model.Id">No</span>
+                @Ajax.ActionLink("Mark as read", "ChangeNotificationStatus", "Notifications", new { id = Model.Id }, new AjaxOptions() { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "notif-" + @Model.Id }, new { @class = "btn btn-primary" })
+
+            }
+
+
+        </dd>
+
+
+    </dl>
+</div>

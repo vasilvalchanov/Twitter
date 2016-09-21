@@ -1,0 +1,47 @@
+﻿@model Twitter.Web.Models.ViewModels.TweetDetailsViewModel
+
+@if (Model.Replies.Any() || Model.Reports.Any())
+{
+    <br>
+    @: Replies:
+
+    <ul>
+        @foreach (var reply in Model.Replies)
+        {
+            <li>
+
+                @string.Format("{0}", reply.Content) (@Html.ActionLink(reply.Author.Fullname, "PublicProfile", "Users", new { username = reply.Author.Username }, new { }))
+                <br>
+                Date: @reply.CreatedOn
+
+            </li>
+        }
+    </ul>
+
+    <br>
+    @: Reports:
+
+    if (Model.Reports.Any())
+    {
+        <ul>
+            @foreach (var report in Model.Reports)
+            {
+                <li>
+
+                    @string.Format("{0}", report.Content) (@Html.ActionLink(report.Author.Fullname, "PublicProfile", "Users", new { username = report.Author.Username }, new { }))
+                    <br>
+                    Date: @report.CreatedOn
+
+                </li>
+            }
+        </ul>
+    }
+
+
+}
+else
+{
+    <br>
+    @:<strong> There are not details fo this Tweet at the moment</strong>
+}
+

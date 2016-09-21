@@ -1,0 +1,26 @@
+﻿
+<h2>Reply</h2>
+
+<div class="row">
+    @using (Html.BeginForm("Reply", "Tweets", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-md-10">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            @Html.TextArea("content", null, new { rows = "5", placeholder = "What's happening ?", @class = "form-control" })
+                            @Html.ValidationMessage("content", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-lg btn-info" type="submit">Reply</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>

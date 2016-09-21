@@ -1,0 +1,14 @@
+﻿@model Twitter.Web.Models.ViewModels.UserViewModel
+
+
+<div class="row">
+    <div class="col-md-6 btn-primary">
+            <span>Username: <strong>@Html.DisplayFor(x => x.Username)</strong></span><br>
+            <span>Name: <strong>@Html.DisplayFor(x => x.Fullname)</strong></span><br>
+            <span>Following Users: <strong>@Model.FollowingUsers.Count()</strong></span><br>
+            <span>Followers: <strong>@Model.Followers.Count()</strong></span><br>
+            <span>Tweets: <strong>@Model.Tweets.Count()</strong></span><br>
+            <span>Favorite Tweets: <strong>@Model.FavoriteTweets.Count()</strong></span>
+        
+    </div>
+</div>

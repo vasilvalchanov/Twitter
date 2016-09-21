@@ -1,0 +1,41 @@
+﻿@using Kendo.Mvc.UI
+@using Twitter.Web.Areas.Admin.Models
+
+@(
+    Html.Kendo().Grid<TweetAdminViewModel>()
+    .Name("TweetsGrid")
+    .Columns(columns =>
+    {
+        columns.Bound(x => x.Id);
+        columns.Bound(x => x.Content);
+        columns.Bound(x => x.CreatedOn);
+        columns.Bound(x => x.Author);
+        columns.Command(command => command.Edit().Text("Edit").UpdateText("Update").CancelText("Cancel"));
+        columns.Command(command => command.Destroy().Text("Delete"));
+    })
+    .ToolBar(toolbar =>
+    {
+        toolbar.Create().Text("Create");
+    })
+    .Editable(editable =>
+    {
+        editable.Mode(GridEditMode.PopUp);
+        editable.Window(x => x.Title("Tweets"));
+        editable.DisplayDeleteConfirmation("Delete tweet?");
+    })
+    .Pageable(x => x.Refresh(true))
+    .Sortable()
+    .Filterable()
+    .Reorderable(x => x.Columns(true))
+    .Resizable(x => x.Columns(true))
+        .DataSource(x => x.Ajax().ServerOperation(true)
+        .Model(m => m.Id(z => z.Id))
+        .Read(read => read.Action("Read", "AdminTweets"))
+        .Create(create => create.Action("Create", "AdminTweets"))
+        .Update(update => update.Action("Update", "AdminTweets"))
+        .Destroy(delete => delete.Action("Delete", "AdminTweets")))
+
+
+)
+
+

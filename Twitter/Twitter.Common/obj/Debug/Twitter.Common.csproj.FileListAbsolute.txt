@@ -1,0 +1,5 @@
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Common\bin\Debug\Twitter.Common.dll
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Common\bin\Debug\Twitter.Common.pdb
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Common\obj\Debug\Twitter.Common.dll
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Common\obj\Debug\Twitter.Common.pdb
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Common\obj\Debug\Twitter.Common.csprojResolveAssemblyReference.cache

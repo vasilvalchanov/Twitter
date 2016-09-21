@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNet.Identity
+@model Twitter.Web.Models.ViewModels.TweetViewModel
+
+
+<div class="col-md-6">
+    <h3>Tweet#@Model.Id
+    @if (Model.Reports.Any())
+    {
+        @: <span class="alert-danger">Reported!!!</span>
+    }
+    </h3>
+    <span><strong>@Html.DisplayNameFor(x => x.Content) : </strong>@Html.DisplayFor(x => x.Content)</span><br>
+    <span><strong>@Html.DisplayNameFor(x => x.CreatedOn) : </strong>@Html.DisplayFor(x => x.CreatedOn)</span><br>
+    <span><strong>@Html.DisplayNameFor(x => x.Author) : </strong>@Html.ActionLink(@Model.Author.Fullname, "PublicProfile", "Users", new { username = @Model.Author.Username }, new { }) (@Html.DisplayFor(x => x.Author.Username))</span></br>
+    <span>
+        <strong>@Html.DisplayName("Users Favorites Count") : </strong><span id="tweetToFavorite-@Model.Id">@Model.UsersFavorites.Count()</span>
+        <strong>@Html.DisplayName("Replies") : </strong><span id="tweetReply-@Model.Id">@Model.Replies.Count()</span>
+        <strong>@Html.DisplayName("Reports") : </strong><span id="tweetReport-@Model.Id">@Model.Reports.Count()</span>
+    </span> <br>
+    <div>
+        @Ajax.ActionLink("Add to Favorites", "AddToFavorites", "Tweets", new { id = Model.Id }, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "tweetToFavorite-" + @Model.Id }, new { @class = "btn btn-primary btn" })
+
+        @Html.ActionLink("Reply", "Reply", "Tweets", new { id = Model.Id }, new { @class = "btn btn-primary btn" })
+
+        @Html.ActionLink("Report", "Report", "Tweets", new { id = Model.Id }, new { @class = "btn btn-primary btn" })
+
+        @Ajax.ActionLink("Details", "Details", "Tweets", new { id = Model.Id }, new AjaxOptions { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "buttons-" + @Model.Id }, new { @class = "btn btn-primary btn" })
+
+        @if (User.Identity.GetUserId() == Model.Author.Id)
+        {
+            @Ajax.ActionLink("Delete", "Confirm", "Tweets", new { id = Model.Id }, new AjaxOptions() { HttpMethod = "POST", InsertionMode = InsertionMode.Replace, UpdateTargetId = "delete-tweet-" + @Model.Id }, new { @class = "btn btn-danger btn" })
+        }
+
+
+    </div>
+
+    <div id ="delete-tweet-@Model.Id"></div>
+    <div id="buttons-@Model.Id">
+    </div>
+</div>
+
+
+
+
+

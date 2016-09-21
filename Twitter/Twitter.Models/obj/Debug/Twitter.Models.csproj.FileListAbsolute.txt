@@ -1,0 +1,14 @@
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\Twitter.Models.dll.config
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\Twitter.Models.dll
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\Twitter.Models.pdb
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\EntityFramework.dll
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\EntityFramework.SqlServer.dll
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\EntityFramework.xml
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\EntityFramework.SqlServer.xml
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\obj\Debug\Twitter.Models.dll
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\obj\Debug\Twitter.Models.pdb
+G:\ASP.NET MVC\Twitter\Twitter\Twitter.Models\obj\Debug\Twitter.Models.csprojResolveAssemblyReference.cache

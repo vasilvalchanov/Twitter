@@ -1,0 +1,2 @@
+﻿@model Twitter.Web.Models.ViewModels.UserViewModel
+    <span>@Model.Notifications.Count(n => n.IsRead == false)</span>

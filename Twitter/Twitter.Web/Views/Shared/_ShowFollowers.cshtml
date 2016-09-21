@@ -1,0 +1,24 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@model IEnumerable<String>
+
+<div>
+    @if (Model.Any())
+    {
+        <br>
+        @: <strong>Followers:</strong>
+        <ul>
+            @foreach (var user in @Model)
+            {
+                <li>
+                    @Html.ActionLink(user, "PublicProfile", "Users", new { username = user }, new { })
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <br>
+        @:<strong>No Followers</strong>
+    }
+    
+</div>
