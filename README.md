@@ -28,3 +28,5 @@ Simple Twitter - ASP.NET MVC App
 -	Users receive notifications for favourite tweet and for new followers.
 -	The notification holds content, date and user.
 
+• There is an administration area. The administrator can create, delete and edit all tweets.
+
