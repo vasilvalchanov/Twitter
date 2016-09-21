@@ -8,6 +8,7 @@ Simple Twitter - ASP.NET MVC App
 -	Users can edit their own profiles.
 -	Users can delete their tweets.
 -	Users can send messages to the other users.
+
 •	Tweets
 -	Every tweet can be favourite by any user.
 -	Every tweet can be reported.
