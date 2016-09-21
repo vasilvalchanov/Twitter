@@ -16,7 +16,7 @@ Simple Twitter - ASP.NET MVC App
 
 •	Users public profiles
 -	Each user has a public profile.
--	Profile have own tweets, following users, followers and favourite tweets. 
+-	Profile has own tweets, following users, followers and favourite tweets. 
 
 •	Application home page
 -	The application home page lists all tweets by all users chronologically. 
