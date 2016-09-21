@@ -2,8 +2,8 @@
 Simple Twitter - ASP.NET MVC App
 
 •	Users
-o	Users have followers and list of following users.
-o	Every user can follow the others and can be followed by the others.
+-	Users have followers and list of following users.
+-	Every user can follow the others and can be followed by the others.
 o	Users may post new tweets.
 o	Users can edit their own profiles.
 o	Users can delete their tweets.
